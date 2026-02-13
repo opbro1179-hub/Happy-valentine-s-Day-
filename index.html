@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yuvraj ❤️ Riya Valentine</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", cursive;
+      background: radial-gradient(circle, #fff, #ff4d6d);
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    /* Floating hearts animation */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 24px;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    /* Card Box */
+    .box {
+      background: rgba(255,255,255,0.94);
+      padding: 35px;
+      border-radius: 25px;
+      max-width: 680px;
+      margin: 70px auto;
+      box-shadow: 0 0 35px rgba(0,0,0,0.25);
+      animation: zoomPop 0.8s ease;
+    }
+
+    @keyframes zoomPop {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    h1,h2 {
+      font-size: 34px;
+      color: deeppink;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.25);
+    }
+
+    p {
+      font-size: 22px;
+    }
+
+    button {
+      padding: 15px 28px;
+      border: none;
+      border-radius: 15px;
+      background: hotpink;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      margin: 12px;
+      transition: 0.25s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: deeppink;
+    }
+
+    input {
+      padding: 14px;
+      width: 85%;
+      margin-top: 12px;
+      border-radius: 14px;
+      border: 1px solid #aaa;
+      font-size: 18px;
+    }
+
+    /* Naruto Compliment Box */
+    .compliment {
+      margin-top: 18px;
+      font-size: 22px;
+      color: green;
+      font-weight: bold;
+      display: none;
+      animation: pop 0.5s ease;
+    }
+
+    @keyframes pop {
+      from {transform: scale(0.5); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+
+    #noBtn {
+      background: black;
+      position: absolute;
+    }
+
+    .finalMsg {
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: left;
+      padding: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Hearts Generator -->
+<script>
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }
+  setInterval(createHeart, 350);
+</script>
+
+
+<!-- STEP 1 -->
+<div class="box" id="step1">
+  <h1>🌸 Hinata's Valentine Mission 🌸</h1>
+  <p>Naruto 🍜 + Hinata 🌷 made this for Yuvraj 😳❤️</p>
+  <button onclick="nextStep(1)">Start the Love Quest 💌</button>
+</div>
+
+
+<!-- STEP 2 -->
+<div class="box" id="step2" style="display:none;">
+  <h2>Hinata asks 💖 Question 1</h2>
+  <p>“Tumhare liye perfect love ka matlab kya hai?”</p>
+  <input placeholder="Type your answer...">
+
+  <div class="compliment" id="c1">Naruto: Wahhh 😍 kya answer hai!! 💖👏</div>
+
+  <button onclick="showCompliment(1)">Next ➝</button>
+</div>
+
+
+<!-- STEP 3 -->
+<div class="box" id="step3" style="display:none;">
+  <h2>Hinata asks 🌷 Question 2</h2>
+  <p>“Agar tum apne special person ko ek line bol sako, toh kya bolte?”</p>
+  <input placeholder="Type your answer...">
+
+  <div class="compliment" id="c2">Naruto: Omg 😭❤️ kitna cute bol diya!! 🥺✨</div>
+
+  <button onclick="showCompliment(2)">Next ➝</button>
+</div>
+
+
+<!-- STEP 4 -->
+<div class="box" id="step4" style="display:none;">
+  <h2>Hinata asks 😏 Question 3</h2>
+  <p>“Dream date choose karni ho toh... mere sath karoge ya Riya ke sath?” 👀❤️</p>
+
+  <div class="compliment" id="c3">Naruto: Yesss 😎🔥 Riya best choice!! 💕</div>
+
+  <button onclick="showCompliment(3)">Riya of course 😳💖</button>
+</div>
+
+
+<!-- STEP 5 YES/NO -->
+<div class="box" id="step5" style="display:none; position:relative;">
+  <h2>Naruto Challenge 🍜</h2>
+  <p>Yuvraj... Will you be Riya’s Forever Valentine? ❤️</p>
+
+  <button onclick="nextStep(5)">YES 😭💖</button>
+  <button id="noBtn">NO 😤</button>
+</div>
+
+
+<!-- FINAL SURPRISE -->
+<div class="box" id="step6" style="display:none;">
+  <h1>🎁 Final Valentine Surprise 🎁</h1>
+
+  <p>Hinata says: “You unlocked Riya’s heart message...” 💌</p>
+
+  <div class="finalMsg">
+    <b>Pyaare babyy mere Yuv 👀❤️</b><br><br>
+
+    I LOVE YOU isliye nahi ki tum ache dikhte ho ya smart ho...  
+    main tumse isliye pyar karti hun kyunki tumhara nature bilkul bacchon wala hai 😭❤️  
+    tumhari caring aur efforts mujhe bahut special feel karvate hain 🤌❤️<br><br>
+
+    Valentine toh bas ek bahana tha…  
+    mujhe toh bas moka chahiye tha tumpe pyaar barsane ka 🤣❤️<br><br>
+
+    (Yuvraj, humra dil sirf tohare khatir dhadke la 😭😂❤️)<br><br>
+
+    mmmmmmmwwwwwwwaaaaaaaaaaaaaaaahhhhhhhhh 😘❤️
+  </div>
+
+  <h2>Happy Valentine’s Day Yuvraj ❤️🌸</h2>
+</div>
+
+
+<script>
+  function nextStep(step) {
+    document.getElementById("step" + step).style.display = "none";
+    document.getElementById("step" + (step + 1)).style.display = "block";
+  }
+
+  // Compliment show + Next
+  function showCompliment(num) {
+    document.getElementById("c" + num).style.display = "block";
+
+    setTimeout(() => {
+      nextStep(num + 1);
+    }, 1800);
+  }
+
+  // NO button prank 😭
+  const noBtn = document.getElementById("noBtn");
+  noBtn.addEventListener("mouseover", () => {
+    noBtn.style.left = Math.random() * 300 + "px";
+    noBtn.style.top = Math.random() * 200 + "px";
+  });
+</script>
+
+</body>
+</html>
